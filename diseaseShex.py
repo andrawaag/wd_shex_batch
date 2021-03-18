@@ -2,7 +2,7 @@ from rdflib import Graph
 from wikidataintegrator import wdi_core
 from pprint import pprint
 
-query = "SELECT * WHERE {?item wdt:P699 ?doid .} LIMIT 10"
+query = "SELECT * WHERE {?item wdt:P699 ?doid .}"
 results = wdi_core.WDFunctionsEngine.execute_sparql_query(query=query, as_dataframe=True)
 
 report = []
