@@ -22,7 +22,7 @@ with open('disease_shex.json', 'w', encoding='utf-8') as f:
     json.dump(report, f, ensure_ascii=False, indent=4)
 
 with open('disease_shex_errors.json', 'w', encoding='utf-8') as f:
-    json.dump(report, f, ensure_ascii=False, indent=4)
+    json.dump(not_evaluated, f, ensure_ascii=False, indent=4)
 # print(wdi_core.WDFunctionsEngine.check_shex_conformance(qid="Q35869", eid="E113", output="conform"))
 
 
