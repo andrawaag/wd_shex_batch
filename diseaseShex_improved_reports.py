@@ -16,10 +16,11 @@ shex_results = dict()
 schema = SchemaLoader().loads(shex)
 not_evaluated = dict()
 try:
-    query = "SELECT * WHERE {?item wdt:P699 ?doid .} LIMIT 10"
+    query = "SELECT * WHERE {?item wdt:P699 ?doid .}"
     query_results = wdi_core.WDFunctionsEngine.execute_sparql_query(query=query, as_dataframe=True)
     for index, row in query_results.iterrows():
         qid=row["item"].replace("http://www.wikidata.org/entity/", "")
+        print(qid)
         rdfdata.parse("http://www.wikidata.org/entity/{}.ttl".format(qid))
         result = ShExEvaluator(rdf=rdfdata, schema=schema, focus="http://www.wikidata.org/entity/{}".format(qid)).evaluate()
         for i in range(len(schema.shapes[0].expression.expressions)):  
